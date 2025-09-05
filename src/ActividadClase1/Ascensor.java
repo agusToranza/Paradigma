@@ -1,7 +1,10 @@
-public class ascensor {
+package ActividadClase1;
+
+public class Ascensor {
     private boolean puertaAbierta;
     private int pisoActual = 0;
     private int cantPersonas;
+    private Persona quienViaja;
 
     public boolean estaAbiertaLaPuerta(){
         return puertaAbierta;
@@ -22,5 +25,18 @@ public class ascensor {
 
     public int enQuePisoEstas() {
         return pisoActual;
+    }
+
+    public void ingresa(Persona alguienQueViaja) {
+        this.quienViaja = alguienQueViaja;
+    }
+
+    public void comenzarRecorrido() {
+        this.cerrarPuerta();
+        this.andaAlPiso(this.quienViaja.aQuePisoQueresIr());
+    }
+
+    public boolean hayAlguienAdentro() {
+        return this.quienViaja != null;
     }
 }
