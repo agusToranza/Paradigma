@@ -17,4 +17,12 @@ public class Propietario {
     public void agregarCentral(CentralProductora centralProductora) {
         centrales.add(centralProductora);
     }
+
+    public HashSet<CentralProductora> getCentrales() {
+        return centrales;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
 }
