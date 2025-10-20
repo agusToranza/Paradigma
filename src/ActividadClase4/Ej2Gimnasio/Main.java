@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
         Persona agustin = new Persona(123);
-        MembresiaFull full = new MembresiaFull();
-        full.entregarMembresiaFull(agustin);
-        System.out.println(agustin.tieneMembresia);
-        System.out.println(agustin.queMembresiaTiene);
+
+
+        System.out.println(agustin.tenesMembreseia());
+
     }
 }

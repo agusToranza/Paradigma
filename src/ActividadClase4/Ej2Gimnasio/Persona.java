@@ -2,11 +2,11 @@ package ActividadClase4.Ej2Gimnasio;
 
 public class Persona {
     private int numeroDNI;
-    boolean tieneMembresia;
-    Membresia queMembresiaTiene;
+    private boolean tieneMembresia;
+    private int cantidadActividadesQueRealiza;
 
 
-    public  Persona (int unDNI) {
+    public Persona(int unDNI) {
         this.numeroDNI = unDNI;
     }
 
@@ -14,11 +14,11 @@ public class Persona {
         return this.numeroDNI;
     }
 
-    public boolean tenesMembreseia(Persona unaPersona) {
-        return tieneMembresia;
+    public boolean tenesMembreseia() {
+        return this.tieneMembresia;
     }
 
-    public void entregarMembresia(Persona unaPersona) {
+    public void entregarMembresia() {
         this.tieneMembresia = true;
     }
 
@@ -26,7 +26,12 @@ public class Persona {
 
     }
 
-    public void tipoMembresia(Membresia tipo) {
-        this.queMembresiaTiene = tipo;
+    public void sumarActividad() {
+        this.cantidadActividadesQueRealiza += 1;
     }
+
+    public int cuantasActividadesHaces() {
+        return this.cantidadActividadesQueRealiza;
+    }
+
 }

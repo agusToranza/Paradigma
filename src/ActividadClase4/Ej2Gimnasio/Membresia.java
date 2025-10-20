@@ -1,13 +1,19 @@
 package ActividadClase4.Ej2Gimnasio;
 
-public class Membresia {
-    protected int DNIdeQuienLePertenece;
-    protected boolean sePuedeUsar;
-    protected int cantidadActividades;
+public abstract class Membresia {
 
-    public int deQuienEsLaMembresia() {
-        return DNIdeQuienLePertenece;
+    protected int DNIsocio;
+
+    public Membresia(int DNIsocio) {
+        this.DNIsocio = DNIsocio;
     }
+
+    public int getDNIsocio() {
+        return DNIsocio;
+    }
+
+    public abstract boolean puedeRealizarActividad(Actividad actividad);
+
 
 
 }

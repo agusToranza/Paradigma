@@ -1,14 +1,14 @@
 package ActividadClase4.Ej2Gimnasio;
 
-public class MembresiaFull extends Membresia{
+public class MembresiaDePrueba extends Membresia {
 
-
-    public MembresiaFull(int DNIsocio) {
+    public MembresiaDePrueba(int DNIsocio) {
         super(DNIsocio);
     }
 
     @Override
     public boolean puedeRealizarActividad(Actividad actividad) {
-        return true;
+        boolean fueUsada = false;
+        return !fueUsada;
     }
 }
