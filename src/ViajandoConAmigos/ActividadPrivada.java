@@ -1,19 +1,38 @@
 package ViajandoConAmigos;
 
-public class ActividadPrivada implements Actividad{
+public class ActividadPrivada extends Actividad{
 
-    private final int valorFijoPorActividad;
+    private int valorFijoPorActividad;
     private final int maximoParticipantes;
-    private final Destino destino;
 
-    public ActividadPrivada(int valorFijoPorActividad, int maximoParticipantes, Destino destino) {
+    public ActividadPrivada(String nombre, int valorFijoPorActividad, int maximoParticipantes, Destino destino) {
+        this.nombreActividad = nombre;
         this.valorFijoPorActividad = valorFijoPorActividad;
         this.maximoParticipantes = maximoParticipantes;
-        this.destino = destino;
+        this.destinoDondeSeRealiza = destino;
+        destino.agregarActividadEnDestino(this);
     }
 
     @Override
     public boolean puedeRealizarActividad(GrupoDeAmigos grupo) {
       return grupo.getCantidadViajeros() < maximoParticipantes;
+    }
+
+    @Override
+    public int getValorTotalActividad(GrupoDeAmigos grupoDeAmigos) {
+        return valorFijoPorActividad;
+    }
+
+    public void cambiarValorFijo(int valorNuevo) {
+        this.valorFijoPorActividad = valorNuevo;
+    }
+
+    public int getValorFijoPorActividad() {
+        return this.valorFijoPorActividad;
+    }
+
+    @Override
+    public int getValorActividad() {
+        return this.valorFijoPorActividad;
     }
 }

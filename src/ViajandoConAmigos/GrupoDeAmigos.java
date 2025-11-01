@@ -26,4 +26,12 @@ public class GrupoDeAmigos {
     public void eliminarIntegranteGrupo(Viajero viajero) {
         viajerosEnElGrupo.remove(viajero);
     }
+
+    public void agregarIntegranteAlGrupo(Viajero viajero) {
+        viajerosEnElGrupo.add(viajero);
+    }
+
+    public int getPresupuestoMaximo() {
+        return this.presupuestoMaximo;
+    }
 }

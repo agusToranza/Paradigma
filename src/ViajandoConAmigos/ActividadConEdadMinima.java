@@ -2,16 +2,17 @@ package ViajandoConAmigos;
 
 import java.util.HashSet;
 
-public class ActividadConEdadMinima implements Actividad{
+public class ActividadConEdadMinima extends Actividad{
 
     private final int edadMinimaRequerida;
-    private final int precioFijoPorPersona;
-    private final Destino destino;
+    private int precioPorPersona;
 
-    public ActividadConEdadMinima(int edadMinimaRequerida, int precioFijoPorPersona, Destino destino) {
+    public ActividadConEdadMinima(String nombreActividad, int edadMinimaRequerida, int precioFijoPorPersona, Destino destino) {
+        this.nombreActividad = nombreActividad;
         this.edadMinimaRequerida = edadMinimaRequerida;
-        this.precioFijoPorPersona = precioFijoPorPersona;
-        this.destino = destino;
+        this.precioPorPersona = precioFijoPorPersona;
+        this.destinoDondeSeRealiza = destino;
+        destino.agregarActividadEnDestino(this);
     }
 
 
@@ -26,6 +27,24 @@ public class ActividadConEdadMinima implements Actividad{
             }
         }
         return puedeRealizarAct;
+    }
+
+    @Override
+    public int getValorActividad() {
+        return this.precioPorPersona;
+    }
+
+    @Override
+    public int getValorTotalActividad(GrupoDeAmigos grupoDeAmigos) {
+        return precioPorPersona * grupoDeAmigos.getCantidadViajeros();
+    }
+
+    public void cambiarPrecioPorPersona(int nuevoPrecio) {
+        this.precioPorPersona = nuevoPrecio;
+    }
+
+    public int getPrecioPorPersona() {
+        return this.precioPorPersona;
     }
 
 }
