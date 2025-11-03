@@ -1,6 +1,16 @@
 package PlataformaDeBeneficios;
 
-public class BeneficioConAntiguedad {
+public class BeneficioConAntiguedad extends Beneficio{
 
-    private int antiguedadNecesaria;
+    private final int antiguedadNecesaria;
+
+    public BeneficioConAntiguedad(int valorEnPuntos, int antiguedadNecesaria) {
+        this.valorEnPuntos = valorEnPuntos;
+        this.antiguedadNecesaria = antiguedadNecesaria;
+    }
+
+    @Override
+    public boolean puedeCanjearBeneficio(Empleado empleado) {
+        return empleado.getAntiguedad() >= this.antiguedadNecesaria && empleado.getCantidadDePuntos() >= this.valorEnPuntos;
+    }
 }

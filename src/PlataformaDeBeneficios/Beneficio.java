@@ -2,7 +2,12 @@ package PlataformaDeBeneficios;
 
 public abstract class Beneficio {
 
-    private int valorEnPuntos;
+    protected int valorEnPuntos;
 
     public abstract boolean puedeCanjearBeneficio(Empleado empleado);
+
+    public int getValorEnPuntos() {
+        return this.valorEnPuntos;
+    }
+
 }

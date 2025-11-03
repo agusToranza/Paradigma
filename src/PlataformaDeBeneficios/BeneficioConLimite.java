@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class BeneficioConLimite extends Beneficio {
 
-    private int cantidadVecesPermitidas;
+    private final int cantidadVecesPermitidas;
+
+    public BeneficioConLimite(int costoPuntos, int cantidadVecesPermitidas) {
+        this.valorEnPuntos = costoPuntos;
+        this.cantidadVecesPermitidas = cantidadVecesPermitidas;
+    }
 
     @Override
     public boolean puedeCanjearBeneficio(Empleado empleado) {
@@ -15,6 +20,6 @@ public class BeneficioConLimite extends Beneficio {
                 contador += 1;
             }
         }
-        return contador <  cantidadVecesPermitidas;
+        return contador < this.cantidadVecesPermitidas && empleado.getCantidadDePuntos() >= this.valorEnPuntos;
     }
 }
